@@ -13,13 +13,13 @@ public class ValidRegFormTest {
     void ValidForm() {
         open("http://localhost:9999/");
         $("[data-test-id=city] input").setValue("Ханты-Мансийск");
-        $("[data-test-id=date] input").setValue("01.10.2023");
+        $("[data-test-id=date] input").setValue("02.10.2023");
         $("[data-test-id=name] input").setValue("Курский Виктор");
         $("[data-test-id=phone] input").setValue("+79824133177");
         $("[data-test-id=agreement]").click();
         $("button.button").click();
         $(withText("Мы гарантируем безопасность")).shouldBe(visible);
-        $("[data-test-id='notification']").shouldBe(visible, Duration.ofSeconds(11));
+        $("[data-test-id='notification']").shouldBe(visible, Duration.ofSeconds(30));
         $("[data-test-id='notification']").shouldHave(text("Встреча успешно забронирована на "));
     }
 }
